@@ -1,11 +1,16 @@
-# Mission-Red
-Mission Red is a high-fidelity, scroll-driven web experience that translates the epic scale of interplanetary travel into a cinematic, interactive narrative. The project transitions from a technical pre-launch sequence on Earth to an atmospheric descent onto the surface of Mars, guided entirely by the user’s scroll interaction.
-Concept: The Cinematic Journey
-The core concept is "Continuous Narrative Flow." Unlike traditional multi-page sites, Mission Red uses a unified 3D coordinate system where every scroll tick represents millions of kilometers. This is achieved by synchronizing a Three.js camera rig with the browser’s scroll progress, creating a seamless transition through five distinct mission phases: Pre-Launch, Orbital Ascent, Deep Space Transit, Orbital Insertion, and Final Approach.
+# React + Vite
 
-Design Process: High-Fidelity Convergence
-Immersive 3D Environment: The visual foundation uses React Three Fiber to manage a complex celestial scene. We balanced performance and fidelity by using a stylized, procedural wireframe model for Earth and a high-poly, textured .glb model for the destination planet, Mars. This ensures that the visual "wow factor" peaks exactly as the user reaches their destination.
-Telemetry & HUD Layer: To reinforce the pilot’s perspective, a glassmorphic HUD (Head-Up Display) overlay provides real-time telemetry (Altitude, Velocity, Mission Time). This layer uses responsive React components tied to the global scroll state, ensuring that the UI feels "connected" to the 3D physics of the ship.
-Procedural Audio Engine: Using the Web Audio API, we developed a custom, asset-free sound engine. By synthesizing rocket rumble and space drones in real-time using oscillators and noise buffers, we avoided large audio file downloads while maintaining perfect synchronization with the visual intensity of the mission.
-Interactivity: The journey culminates in an interactive landing phase, where users must manually fire retro-thrusters to maintain stability, transforming the experience from a passive observer to an active mission commander.
-This convergence of procedural sound, synchronized 3D animation, and interactive telemetry results in a state-of-the-art web experience that feels alive, responsive, and truly interplanetary.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

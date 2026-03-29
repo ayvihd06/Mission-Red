@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>Mission Red: A Cinematic Journey to Mars</title>
+    <meta name="description" content="An immersive, scroll-driven cinematic experience that takes you from Earth launch to Mars landing through stunning 3D visuals, real-time HUD data, and interactive storytelling." />
+    <meta name="keywords" content="Mars, space, interactive, Three.js, cinematic, storytelling, mission, 3D" />
+    <meta property="og:title" content="Mission Red: A Cinematic Journey to Mars" />
+    <meta property="og:description" content="Experience the journey to Mars like never before — cinematic, immersive, interactive." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#c1440e" />
+
+    <!-- Preconnect for Google Fonts (loaded in CSS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <style>
+      /* Critical above-fold styles — prevent FOUC */
+      html {
+        margin: 0; padding: 0;
+        width: 100%;
+        background: #000408;
+      }
+      body {
+        margin: 0; padding: 0;
+        width: 100%;
+        min-height: 100vh;
+        background: #000408;
+      }
+      #root {
+        margin: 0; padding: 0;
+        width: 100%;
+        min-height: 100vh;
+      }
+      /* Loading screen */
+      #loading-screen {
+        position: fixed;
+        inset: 0;
+        background: #000408;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        font-family: 'Courier New', monospace;
+        color: rgba(0,212,255,0.7);
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        gap: 16px;
+        transition: opacity 0.8s ease;
+      }
+      #loading-screen.hidden { opacity: 0; pointer-events: none; }
+      .loading-bar-track {
+        width: 200px; height: 2px;
+        background: rgba(255,255,255,0.08);
+        border-radius: 1px;
+        overflow: hidden;
+      }
+      .loading-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #c1440e, #00d4ff);
+        border-radius: 1px;
+        animation: load-fill 1.8s cubic-bezier(0.4,0,0.2,1) forwards;
+      }
+      @keyframes load-fill {
+        0% { width: 0%; }
+        60% { width: 75%; }
+        100% { width: 100%; }
+      }
+      .loading-dots::after {
+        content: '';
+        animation: dots 1.5s steps(4, end) infinite;
+      }
+      @keyframes dots {
+        0%   { content: ''; }
+        25%  { content: '.'; }
+        50%  { content: '..'; }
+        75%  { content: '...'; }
+        100% { content: ''; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading screen (hides once React hydrates) -->
+    <div id="loading-screen">
+      <div style="font-size:9px;letter-spacing:0.4em;opacity:0.5;">INTERPLANETARY SPACE AGENCY</div>
+      <div style="font-size:22px;font-weight:bold;letter-spacing:0.15em;color:#e8632a;text-shadow:0 0 20px rgba(232,99,42,0.6);">MISSION RED</div>
+      <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
+      <div class="loading-dots" style="opacity:0.5;">INITIALIZING SYSTEMS</div>
+    </div>
+
+    <div id="root"></div>
+
+    <script>
+      // Hide loading screen once React mounts
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          const el = document.getElementById('loading-screen');
+          if (el) {
+            el.classList.add('hidden');
+            setTimeout(() => el.remove(), 900);
+          }
+        }, 2000);
+      });
+    </script>
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
