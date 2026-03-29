@@ -20,21 +20,11 @@
 
     <style>
       /* Critical above-fold styles — prevent FOUC */
-      html {
+      html, body, #root {
         margin: 0; padding: 0;
-        width: 100%;
+        width: 100%; height: 100%;
         background: #000408;
-      }
-      body {
-        margin: 0; padding: 0;
-        width: 100%;
-        min-height: 100vh;
-        background: #000408;
-      }
-      #root {
-        margin: 0; padding: 0;
-        width: 100%;
-        min-height: 100vh;
+        overflow-x: hidden;
       }
       /* Loading screen */
       #loading-screen {
@@ -83,6 +73,8 @@
         100% { content: ''; }
       }
     </style>
+    <script type="module" crossorigin src="/assets/index-CjWeA_b1.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-mdZ6vw9u.css">
   </head>
   <body>
     <!-- Loading screen (hides once React hydrates) -->
@@ -108,6 +100,5 @@
       });
     </script>
 
-    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
